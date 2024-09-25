@@ -7,11 +7,11 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-public class CustomerDBUtil {
+public class AdminDBUtil {
 	
-	public static List<Customer> validate (String userName, String password){
+	public static List<Admin> validate (String userName, String password){
 		
-		ArrayList<Customer> cus = new ArrayList<>();
+		ArrayList<Admin> cus = new ArrayList<>();
 		
 		//Database connection
 		
@@ -28,7 +28,7 @@ public class CustomerDBUtil {
 			Connection con = DriverManager.getConnection(url,user,pass);			
 			Statement stmt = con.createStatement();
 			
-			String sql = "select * from customer where username = '"+userName+"' and password = '"+password+"'";
+			String sql = "select * from admin where username = '"+userName+"' and password = '"+password+"'";
 			
 			ResultSet rs = stmt.executeQuery(sql);
 			
@@ -41,7 +41,7 @@ public class CustomerDBUtil {
 				String userU = rs.getString(5);
 				String passU = rs.getString(6);
 				
-				Customer c = new Customer(id, name, email, phone, userU, passU);
+				Admin c = new Admin(id, name, email, phone, userU, passU);
 				cus.add(c);
 				
 			}

@@ -21,7 +21,7 @@ public class LoginServlet extends HttpServlet {
 		
 		try {
 
-			List<Customer> cusDetails = CustomerDBUtil.validate(username, password);
+			List<Admin> cusDetails = AdminDBUtil.validate(username, password);
 			request.setAttribute("cusDetails", cusDetails);
 			
 		}catch(Exception e2) {
