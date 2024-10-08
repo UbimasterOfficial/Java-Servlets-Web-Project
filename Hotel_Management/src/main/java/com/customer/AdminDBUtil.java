@@ -19,7 +19,7 @@ public class AdminDBUtil {
 		String user = "root";
 		String pass ="password";
 		
-		//customer pass validation
+		//Admin pass validation
 		
 		try {
 			
