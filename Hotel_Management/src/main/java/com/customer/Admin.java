@@ -1,6 +1,6 @@
 package com.customer;
 
-public class Customer {
+public class Admin {
 	
 	private int id;
 	private String name;
@@ -11,7 +11,7 @@ public class Customer {
 	
 	
 	
-	public Customer(int id, String name, String email, String phone, String userName, String password) {
+	public Admin(int id, String name, String email, String phone, String userName, String password) {
 		
 		this.id = id;
 		this.name = name;

@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Customer Details</title>
+<title>Admin Details</title>
 </head>
 <body>
 
