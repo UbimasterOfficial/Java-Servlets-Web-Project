@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Hotel Management</title>
+<title>Admin Insert</title>
 
 <style>
         body {
@@ -50,37 +50,33 @@
 </head>
 <body>
 
-
 <div class="form-container">
-
-    <h2>Hotel Admin Login</h2>
+    <h2>Admin Register Form</h2>
     
-    <form action="login" method="post">
+    
+    <form action="AdminInsert" method="post">
+    
 
+        <label for="name">Name:</label>
+        <input type="text"  name="name" required>
 
-        <label for="name">User Name:</label>
-        <input type="text" name="uid" required>
-
-        <label for="phone">Password:</label>
-        <input type="password" name="pass" required>
-
-
-        <input type= "submit" name="submit" value="login">
+        <label for="email">Email:</label>
+        <input type="email" name="email" required>
         
-    </form>
-</div>
+        <label for="phone">Phone Number:</label>
+        <input type="tel"  name="phone" required>
 
-<!--
-	<form action="login" method ="post">
-	
-		User Name <input type="text" name = "uid"> <br>
-		Password <input type="password" name="pass"> <br>
-		
-		<input type= "submit" name="submit" value="login">
-	
-	</form>
-	
--->
+        <label for="uname">User Name:</label>
+        <input type="text"  name="uid" required>
+
+        <label for="password">Password:</label>
+        <input type="password"  name="psw" required>
+
+
+        <input type="submit" name="submit" value="Create Admin">
+    </form>
+    
+</div>
 
 </body>
 </html>
