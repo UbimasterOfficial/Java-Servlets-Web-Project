@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 public class AdminDBUtil {
 	
+	private static boolean isSuccess;
 	private static Connection con = null;
 	private static Statement stmt = null;
 	private static ResultSet rs = null;
@@ -97,6 +98,45 @@ public class AdminDBUtil {
 		
 		return isSuccess;
 		
+	}
+	
+	
+	
+	//Admin data update to DB
+	
+	public static boolean updateAdmin(String id, String name, String username, String phone,String email, String password) {
+		
+		//Database connection
+		
+				String url = "jdbc:mysql://localhost:3306/hotel";
+				String user = "root";
+				String pass ="password";
+				
+				try {
+					
+					Class.forName("com.mysql.jdbc.Driver");
+					
+					Connection con = DriverManager.getConnection(url,user,pass);			
+					Statement stmt = con.createStatement();
+					
+					String sql = "update admin set name='"+name+"',email= '"+email+"', phone= '"+phone+"', username='"+username+"', password='"+password+"'"
+					+ "where id ='"+id+"' ";
+					
+					int rs = stmt.executeUpdate(sql); 
+					
+					if(rs>0) {
+						isSuccess =true;
+					}else {
+						isSuccess = false;
+					}
+					
+					
+				}catch(Exception e1) {
+					e1.printStackTrace();
+				}
+		
+		
+		return isSuccess;
 	}
 	
 
