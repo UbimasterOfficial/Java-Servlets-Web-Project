@@ -139,6 +139,58 @@ public class AdminDBUtil {
 		return isSuccess;
 	}
 	
+	
+	//Admin data retrieve from DB
+	
+	public static List<Admin> getAdminDetails(String ID){
+		
+		
+		//convert String id to int data type
+		int conID = Integer.parseInt(ID.trim());
+		
+		ArrayList<Admin> cus = new ArrayList<>();
+
+		//Database connection
+		
+		String url = "jdbc:mysql://localhost:3306/hotel";
+		String user = "root";
+		String pass ="password";
+		
+		try {
+			
+			Class.forName("com.mysql.jdbc.Driver");
+			
+			Connection con = DriverManager.getConnection(url,user,pass);			
+			Statement stmt = con.createStatement();
+			
+			String sql = "select * from admin where id='"+conID+"'";
+			
+			rs = stmt.executeQuery(sql);
+			
+			while(rs.next()) {
+				
+				int id = rs.getInt(1);
+				String name = rs.getString(2);
+				String email = rs.getString(3);
+				String phone = rs.getString(4);
+				String username = rs.getString(5);
+				String password = rs.getString(6);
+				
+				Admin a = new Admin(id, name, email, phone, username, password);
+				
+				cus.add(a);
+				
+			}
+			
+			
+		}catch(Exception e1) {
+			e1.printStackTrace();
+		}
+		
+		
+		return cus;
+	}
+	
 
 
 }

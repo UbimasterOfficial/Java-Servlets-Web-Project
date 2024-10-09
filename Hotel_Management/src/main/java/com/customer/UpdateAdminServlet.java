@@ -7,6 +7,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 
 public class UpdateAdminServlet extends HttpServlet {
@@ -28,10 +29,18 @@ public class UpdateAdminServlet extends HttpServlet {
 		isTrue = AdminDBUtil.updateAdmin(id, name, username, phone, email, password);
 		
 		if(isTrue== true) {
-			RequestDispatcher dis = request.getRequestDispatcher("success.jsp");
+			
+			List<Admin> adminDetails = AdminDBUtil.getAdminDetails(id);
+			request.setAttribute("cusDetails", adminDetails);
+			
+			RequestDispatcher dis = request.getRequestDispatcher("useraccount.jsp");
 			dis.forward(request, response);
 		}else {
-			RequestDispatcher dis2 = request.getRequestDispatcher("unsuccess.jsp");
+			
+			List<Admin> adminDetails = AdminDBUtil.getAdminDetails(id);
+			request.setAttribute("cusDetails", adminDetails);
+			
+			RequestDispatcher dis2 = request.getRequestDispatcher("useraccount.jsp");
 			dis2.forward(request, response);
 		}
 		
