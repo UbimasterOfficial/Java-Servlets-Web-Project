@@ -29,4 +29,14 @@
     <servlet-name>AdminInsert</servlet-name>
     <url-pattern>/AdminInsert</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UpdateAdminServlet</display-name>
+    <servlet-name>UpdateAdminServlet</servlet-name>
+    <servlet-class>com.customer.UpdateAdminServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateAdminServlet</servlet-name>
+    <url-pattern>/Update</url-pattern>
+  </servlet-mapping>
 </web-app>
