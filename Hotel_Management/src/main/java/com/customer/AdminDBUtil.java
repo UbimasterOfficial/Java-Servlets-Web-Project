@@ -9,6 +9,12 @@ import java.util.ArrayList;
 
 public class AdminDBUtil {
 	
+	private static Connection con = null;
+	private static Statement stmt = null;
+	private static ResultSet rs = null;
+	
+	// Admin validate method in login
+	
 	public static List<Admin> validate (String userName, String password){
 		
 		ArrayList<Admin> cus = new ArrayList<>();
@@ -44,30 +50,55 @@ public class AdminDBUtil {
 				Admin c = new Admin(id, name, email, phone, userU, passU);
 				cus.add(c);
 				
-			}
-			
-			
+			}			
 			
 		}catch(Exception e1) {
 			System.err.println(e1);
 		}
-		
-		
-		
-		
+			
 		return cus;
+				
+	}
+	
+	//Admin info insert to DB
+	
+	public static boolean insertAdmin(String name, String email, String phone, String username,String password) {
 		
+		boolean isSuccess = false;
+		
+		//Database connection
+		
+				String url = "jdbc:mysql://localhost:3306/hotel";
+				String user = "root";
+				String pass ="password";
+				
+		try {
+			
+			Class.forName("com.mysql.jdbc.Driver");
+			
+			Connection con = DriverManager.getConnection(url,user,pass);			
+			Statement stmt = con.createStatement();
+			
+			String sql = "insert into admin values(0,'"+name+"','"+email+"','"+phone+"','"+username+"','"+password+"')";
+			int rs = stmt.executeUpdate(sql);
+			
+			if(rs>0) {
+				isSuccess= true;
+			}else {
+				isSuccess = false;
+			}
+			
+			
+		}catch(Exception e1) {
+			e1.printStackTrace();
+		}
+		
+		
+		
+		return isSuccess;
 		
 	}
 	
-	
-	
-	
-	
 
-	public static void main(String[] args) {
-		
-
-	}
 
 }
