@@ -30,6 +30,7 @@ public class UpdateAdminServlet extends HttpServlet {
 		
 		if(isTrue== true) {
 			
+			request.setAttribute("message", "Account updated successfully!!");
 			List<Admin> adminDetails = AdminDBUtil.getAdminDetails(id);
 			request.setAttribute("cusDetails", adminDetails);
 			
@@ -37,6 +38,7 @@ public class UpdateAdminServlet extends HttpServlet {
 			dis.forward(request, response);
 		}else {
 			
+			request.setAttribute("message", "Account update failed!!");
 			List<Admin> adminDetails = AdminDBUtil.getAdminDetails(id);
 			request.setAttribute("cusDetails", adminDetails);
 			

@@ -187,6 +187,18 @@
                      
 
     </div>
+    
+    
+    <% 
+    String message = (String) request.getAttribute("message");
+    if (message != null) {
+%>
+    <script>
+        alert('<%= message %>');
+    </script>
+<% 
+    }
+%>
 
 </body>
 </html>

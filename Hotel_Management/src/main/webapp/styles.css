@@ -1,0 +1,161 @@
+@charset "ISO-8859-1";
+
+body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .form-container {
+            width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-container label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-container input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .form-container input[type="submit"] {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .form-container input[type="submit"]:hover {
+            background-color: #218838;
+        }
+        
+		/* Style for the delete button */
+		input[name="delete"] {
+		    background-color: #ff4d4d; /* Red background */
+		    color: white;              /* White text */
+		    padding: 10px 20px;        /* Padding to make the button larger */
+		    border: none;              /* Remove borders */
+		    border-radius: 5px;        /* Rounded corners */
+		    font-size: 16px;           /* Text size */
+		    cursor: pointer;           /* Change cursor to pointer on hover */
+		    transition: background-color 0.3s ease; /* Smooth transition on hover */
+		}
+		
+		/* Hover effect */
+		input[name="delete"]:hover {
+		    background-color: #cc0000; /* Darker red on hover */
+		}
+		
+
+
+         .container {
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .card {
+            background-color: #fff;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: 0.3s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-header {
+            font-size: 24px;
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        .card-body {
+            margin-top: 10px;
+            color: #555;
+            padding-bottom: 40px;
+        }
+
+        .card-body div {
+            margin: 8px 0;
+        }
+
+        .card-body label {
+            font-weight: bold;
+            display: inline-block;
+            width: 120px;
+        }
+        
+        /* update Button styling */
+        .update-button {
+            position: absolute;
+            bottom: 100px;
+            right: 150px;
+            background-color: #28a745;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .update-button:hover {
+            background-color: #218838;
+        }
+        
+        /* delete Button styling */
+        .delete-button {
+            position: absolute;
+            bottom: 100px;
+            right: 20px;
+            background-color: #ba181b;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .delete-button:hover {
+            background-color: #a4161a;
+        }
+        
+        .register-text{
+        
+        display: flex;
+   		justify-content: center;
+    	align-items: center;
+    	font-size: 10px;
+        }
+        
+
+        /* Responsive design for smaller screens */
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+            }
+
+            .card-body label {
+                width: 100px;
+            }
+        }

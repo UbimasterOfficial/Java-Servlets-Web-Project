@@ -4,10 +4,9 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Hotel Management</title>
+<title>test1</title>
 
 <link rel="stylesheet" type="text/css" href="styles.css">
-
 </head>
 <body>
 
@@ -29,24 +28,7 @@
         <input type= "submit" name="submit" value="login">
         
     </form>
-    
-    <p style="font-size: 15px;">
-    Don't have an account?
-    <a href="adminInsert.jsp" >Register here</a>
-	</p>
 </div>
-
-
-<% 
-    String message = (String) request.getAttribute("message");
-    if (message != null) {
-%>
-    <script>
-        alert('<%= message %>');
-    </script>
-<% 
-    }
-%>
 
 
 
