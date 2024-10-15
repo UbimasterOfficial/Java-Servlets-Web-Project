@@ -62,11 +62,11 @@
             width: 120px;
         }
         
-        /* Button styling */
+        /* update Button styling */
         .update-button {
             position: absolute;
             bottom: 100px;
-            right: 20px;
+            right: 150px;
             background-color: #28a745;
             color: white;
             padding: 10px 15px;
@@ -79,6 +79,25 @@
         .update-button:hover {
             background-color: #218838;
         }
+        
+        /* delete Button styling */
+        .delete-button {
+            position: absolute;
+            bottom: 100px;
+            right: 20px;
+            background-color: #ba181b;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .delete-button:hover {
+            background-color: #a4161a;
+        }
+        
 
         /* Responsive design for smaller screens */
         @media (max-width: 768px) {
@@ -132,6 +151,8 @@
                                  
         </c:forEach>
         
+        
+        
         <c:url value = "updateAdmin.jsp" var="adminupdate">
         
         	<c:param name="id" value = "${id}"/>
@@ -145,6 +166,23 @@
         
            <a href="${adminupdate}">
            <input type="button" name="update" value="Update Profile" class="update-button"> 
+           </a>
+           
+           
+           
+           <c:url value = "deleteAdmin.jsp" var="admindelete">
+        
+        	<c:param name="id" value = "${id}"/>
+        	<c:param name="name" value = "${name}"/>
+        	<c:param name="email" value = "${email}"/>
+        	<c:param name="phone" value = "${phone}"/>
+        	<c:param name="uname" value = "${username}"/>
+        	<c:param name="pass" value = "${password}"/>
+        
+         </c:url>
+                    
+           <a href="${admindelete}">
+           <input type="button" name="delete" value="Delete Profile" class="delete-button"> 
            </a>
                      
 
