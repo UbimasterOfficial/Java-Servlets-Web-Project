@@ -191,6 +191,49 @@ public class AdminDBUtil {
 		return cus;
 	}
 	
+	
+	
+	public static boolean deleteAdmin(String ID) {
+		
+		//convert String id to int data type
+		int conID = Integer.parseInt(ID.trim());
+		
+		//Database connection
+		
+				String url = "jdbc:mysql://localhost:3306/hotel";
+				String user = "root";
+				String pass ="password";
+				
+		try {
+			
+			Class.forName("com.mysql.jdbc.Driver");
+			
+			Connection con = DriverManager.getConnection(url,user,pass);			
+			Statement stmt = con.createStatement();
+			
+			String sql = "delete from admin where id='"+conID+"'";
+			
+			int rs = stmt.executeUpdate(sql);
+			
+			if(rs>0) {
+				isSuccess =true;
+			}else {
+				isSuccess = false;
+			}
+			
+			
+			
+			
+		}catch(Exception e1) {
+			e1.printStackTrace();
+		}
+				
+				
+				
+		
+		return isSuccess;
+	}
+	
 
 
 }
