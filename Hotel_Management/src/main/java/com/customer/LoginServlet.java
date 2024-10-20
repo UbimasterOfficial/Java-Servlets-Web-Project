@@ -6,6 +6,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 
@@ -16,6 +17,8 @@ public class LoginServlet extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+
+		
 		String username = request.getParameter("uid");
 		String password = request.getParameter("pass");
 		
@@ -24,13 +27,16 @@ public class LoginServlet extends HttpServlet {
 			List<Admin> cusDetails = AdminDBUtil.validate(username, password);
 			request.setAttribute("cusDetails", cusDetails);
 			
+			RequestDispatcher dis = request.getRequestDispatcher("useraccount.jsp");
+			dis.forward(request, response);
+			
+
 		}catch(Exception e2) {
 			System.err.println(e2);
 		}
 		
 		
-		RequestDispatcher dis = request.getRequestDispatcher("useraccount.jsp");
-		dis.forward(request, response);
+		
 		
 		
 		

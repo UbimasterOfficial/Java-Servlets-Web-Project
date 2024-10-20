@@ -7,6 +7,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 
@@ -23,16 +24,22 @@ public class DeleteAdminServlet extends HttpServlet {
 		isTrue = AdminDBUtil.deleteAdmin(id);
 		
 		if(isTrue == true) {
+
+			// Set success message
+            request.setAttribute("message", "Deletion Successful!!");
+            RequestDispatcher dis = request.getRequestDispatcher("adminInsert.jsp");
+            dis.forward(request, response);
 			
-			RequestDispatcher dis = request.getRequestDispatcher("adminInsert.jsp");
-			dis.forward(request, response);
+			
 		}else {
 			
-			List<Admin> adminDetails = AdminDBUtil.getAdminDetails(id);
-			request.setAttribute("cusDetails", adminDetails);
-			
-			RequestDispatcher dis = request.getRequestDispatcher("useraccount.jsp");
-			dis.forward(request, response);
+			// Set failure message
+            request.setAttribute("message", "Deletion FailedS!!");
+            List<Admin> adminDetails = AdminDBUtil.getAdminDetails(id);
+            request.setAttribute("cusDetails", adminDetails);
+            
+            RequestDispatcher dis = request.getRequestDispatcher("useraccount.jsp");
+            dis.forward(request, response);
 		}
 		
 		

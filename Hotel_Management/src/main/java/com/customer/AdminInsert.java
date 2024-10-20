@@ -27,12 +27,16 @@ public class AdminInsert extends HttpServlet {
 		
 		if(isTrue == true) {
 			
-			RequestDispatcher dis = request.getRequestDispatcher("success.jsp");
-			dis.forward(request, response);
+			// Pass a success message to JSP
+            request.setAttribute("message", "Register Successful!!");
+            RequestDispatcher dis = request.getRequestDispatcher("login.jsp");
+            dis.forward(request, response);
+            
 		}else {
-			RequestDispatcher dis2 = request.getRequestDispatcher("unsuccess.jsp");
-			dis2.forward(request, response);
-			
+			// Pass a failure message to JSP
+            request.setAttribute("message", "Register Unsuccessful!!S");
+            RequestDispatcher dis2 = request.getRequestDispatcher("adminInsert.jsp");
+            dis2.forward(request, response);
 		}
 		
 	}

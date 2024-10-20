@@ -36,16 +36,15 @@
             border-radius: 4px;
         }
         .form-container input[type="submit"] {
-            background-color: #ba181b;
+            background-color: #e5383b;
             color: white;
             border: none;
             cursor: pointer;
         }
         .form-container input[type="submit"]:hover {
-            background-color: #a4161a;
+            background-color: #cc0000;
         }
     </style>
-
 
 </head>
 <body>
@@ -85,7 +84,7 @@
         <input type="password"  name="psw" value ="<%=password%>" readonly>
 
 
-        <input type="submit" name="submit" value="Delete My Account Permanently">
+        <input type="submit" name="submit" value="Delete My Account Permanently" >
     </form>
     
 </div>

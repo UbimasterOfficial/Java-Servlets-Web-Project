@@ -19,7 +19,7 @@
 
         .container {
             width: 80%;
-            margin: 20px auto;
+            margin: 40px auto;
         }
 
         h1 {
@@ -98,6 +98,25 @@
             background-color: #a4161a;
         }
         
+        
+        /* logout Button styling */
+        .logout-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #fcf300;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .logout-button:hover {
+            background-color: #ffc600;
+        }
+        
 
         /* Responsive design for smaller screens */
         @media (max-width: 768px) {
@@ -114,6 +133,12 @@
 </head>
 <body>
 <div class="container">
+
+           <a href="login.jsp">
+           <input type="button" name="logout" value="LogOut Profile" class="logout-button"> 
+           </a>
+	
+
         <h1>Admin Profile</h1>
 
         <c:forEach var="cus" items="${cusDetails}">
@@ -184,9 +209,23 @@
            <a href="${admindelete}">
            <input type="button" name="delete" value="Delete Profile" class="delete-button"> 
            </a>
+           
+
                      
 
     </div>
+    
+    
+    <% 
+    String message = (String) request.getAttribute("message");
+    if (message != null) {
+%>
+    <script>
+        alert('<%= message %>');
+    </script>
+<% 
+    }
+%>
 
 </body>
 </html>
